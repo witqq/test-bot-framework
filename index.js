@@ -23,7 +23,7 @@ server.get('/', (req, res) => {
 var bot = new builder.UniversalBot(connector, function (session) {
 
     const text = session.message.text;
-    if (text.trim().toLowerCase().replace(" ", "").indexOf("димагей")) {
+    if (text.trim().toLowerCase().replace(" ", "").indexOf("димагей") !== -1) {
         session.send("lol +1");
     }
     else {
