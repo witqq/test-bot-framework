@@ -27,7 +27,8 @@ const config = {
         new HtmlWebpackPlugin({
             title: "react-hot-ts",
             chunksSortMode: "dependency",
-            template: path.resolve(__dirname, "./client-src/index-template.html")
+            template: path.resolve(__dirname, "./client-src/index-template.html"),
+            hash: true
         }),
         new WebpackBuildNotifierPlugin({
             title: "Hot Reload build",

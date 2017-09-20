@@ -5,3 +5,4 @@ node_modules/
 dist/
 /static/bundle.js
 /static/index.html
+static/bundle.js.map
