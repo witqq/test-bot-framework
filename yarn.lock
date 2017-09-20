@@ -14,6 +14,23 @@
   dependencies:
     "@types/node" "*"
 
+"@types/express-serve-static-core@*":
+  version "4.0.53"
+  resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-4.0.53.tgz#1723a35d1447f2c55e13c8721eab3448e42f4d82"
+  dependencies:
+    "@types/node" "*"
+
+"@types/express@^4.0.37":
+  version "4.0.37"
+  resolved "https://registry.yarnpkg.com/@types/express/-/express-4.0.37.tgz#625ac3765169676e01897ca47011c26375784971"
+  dependencies:
+    "@types/express-serve-static-core" "*"
+    "@types/serve-static" "*"
+
+"@types/mime@*":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@types/mime/-/mime-2.0.0.tgz#5a7306e367c539b9f6543499de8dd519fac37a8b"
+
 "@types/mongodb@*":
   version "2.2.11"
   resolved "https://registry.yarnpkg.com/@types/mongodb/-/mongodb-2.2.11.tgz#595cd869afa1c4cf6ee8935eb25a0783ab46e6aa"
@@ -39,12 +56,30 @@
     "@types/bunyan" "*"
     "@types/node" "*"
 
+"@types/serve-static@*":
+  version "1.7.32"
+  resolved "https://registry.yarnpkg.com/@types/serve-static/-/serve-static-1.7.32.tgz#0f6732e4dab0813771dd8fc8fe14940f34728b4c"
+  dependencies:
+    "@types/express-serve-static-core" "*"
+    "@types/mime" "*"
+
+accepts@~1.3.3:
+  version "1.3.4"
+  resolved "http://46.146.245.83:4873/accepts/-/accepts-1.3.4.tgz#86246758c7dd6d21a6474ff084a4740ec05eb21f"
+  dependencies:
+    mime-types "~2.1.16"
+    negotiator "0.6.1"
+
 ajv@^4.9.1:
   version "4.11.8"
   resolved "http://46.146.245.83:4873/ajv/-/ajv-4.11.8.tgz#82ffb02b29e662ae53bdc20af15947706739c536"
   dependencies:
     co "^4.6.0"
     json-stable-stringify "^1.0.1"
+
+array-flatten@1.1.1:
+  version "1.1.1"
+  resolved "http://46.146.245.83:4873/array-flatten/-/array-flatten-1.1.1.tgz#9a5f699051b1e7073328f2a008968b64ea2955d2"
 
 asap@~2.0.3:
   version "2.0.6"
@@ -84,10 +119,6 @@ aws4@^1.2.1:
   version "1.6.0"
   resolved "http://46.146.245.83:4873/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
 
-balanced-match@^1.0.0:
-  version "1.0.0"
-  resolved "http://46.146.245.83:4873/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
-
 base64url@2.0.0, base64url@^2.0.0:
   version "2.0.0"
   resolved "http://46.146.245.83:4873/base64url/-/base64url-2.0.0.tgz#eac16e03ea1438eff9423d69baa36262ed1f70bb"
@@ -122,13 +153,6 @@ botbuilder@^3.9.1:
     sprintf-js "^1.0.3"
     url-join "^1.1.0"
 
-brace-expansion@^1.1.7:
-  version "1.1.8"
-  resolved "http://46.146.245.83:4873/brace-expansion/-/brace-expansion-1.1.8.tgz#c07b211c7c952ec1f8efd51a77ef0d1d3990a292"
-  dependencies:
-    balanced-match "^1.0.0"
-    concat-map "0.0.1"
-
 bson@~1.0.4:
   version "1.0.4"
   resolved "http://46.146.245.83:4873/bson/-/bson-1.0.4.tgz#93c10d39eaa5b58415cbc4052f3e53e562b0b72c"
@@ -141,15 +165,6 @@ buffer-shims@~1.0.0:
   version "1.0.0"
   resolved "http://46.146.245.83:4873/buffer-shims/-/buffer-shims-1.0.0.tgz#9978ce317388c649ad8793028c3477ef044a8b51"
 
-bunyan@^1.8.1:
-  version "1.8.12"
-  resolved "http://46.146.245.83:4873/bunyan/-/bunyan-1.8.12.tgz#f150f0f6748abdd72aeae84f04403be2ef113797"
-  optionalDependencies:
-    dtrace-provider "~0.8"
-    moment "^2.10.6"
-    mv "~2"
-    safe-json-stringify "~1"
-
 caseless@~0.12.0:
   version "0.12.0"
   resolved "http://46.146.245.83:4873/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
@@ -159,13 +174,6 @@ chrono-node@^1.1.3:
   resolved "http://46.146.245.83:4873/chrono-node/-/chrono-node-1.3.5.tgz#a2495298a32da82bcc01ad9be7d77efa5e244122"
   dependencies:
     moment "^2.10.3"
-
-clone-regexp@^1.0.0:
-  version "1.0.0"
-  resolved "http://46.146.245.83:4873/clone-regexp/-/clone-regexp-1.0.0.tgz#eae0a2413f55c0942f818c229fefce845d7f3b1c"
-  dependencies:
-    is-regexp "^1.0.0"
-    is-supported-regexp-flag "^1.0.0"
 
 co@^4.6.0:
   version "4.6.0"
@@ -177,9 +185,21 @@ combined-stream@^1.0.5, combined-stream@~1.0.5:
   dependencies:
     delayed-stream "~1.0.0"
 
-concat-map@0.0.1:
-  version "0.0.1"
-  resolved "http://46.146.245.83:4873/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
+content-disposition@0.5.2:
+  version "0.5.2"
+  resolved "http://46.146.245.83:4873/content-disposition/-/content-disposition-0.5.2.tgz#0cf68bb9ddf5f2be7961c3a85178cb85dba78cb4"
+
+content-type@~1.0.2:
+  version "1.0.4"
+  resolved "http://46.146.245.83:4873/content-type/-/content-type-1.0.4.tgz#e138cc75e040c727b1966fe5e5f8c9aee256fe3b"
+
+cookie-signature@1.0.6:
+  version "1.0.6"
+  resolved "http://46.146.245.83:4873/cookie-signature/-/cookie-signature-1.0.6.tgz#e303a882b342cc3ee8ca513a79999734dab3ae2c"
+
+cookie@0.3.1:
+  version "0.3.1"
+  resolved "http://46.146.245.83:4873/cookie/-/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -191,36 +211,13 @@ cryptiles@2.x.x:
   dependencies:
     boom "2.x.x"
 
-csv-generate@^1.0.0:
-  version "1.0.0"
-  resolved "http://46.146.245.83:4873/csv-generate/-/csv-generate-1.0.0.tgz#bd52886859d0c925f3e51f60f3abed262fa15caf"
-
-csv-parse@^1.2.0:
-  version "1.2.2"
-  resolved "http://46.146.245.83:4873/csv-parse/-/csv-parse-1.2.2.tgz#0ae9fa2d132d8f763dcd8a309cc17b4c5264de29"
-
-csv-stringify@^1.0.0:
-  version "1.0.4"
-  resolved "http://46.146.245.83:4873/csv-stringify/-/csv-stringify-1.0.4.tgz#bc18bab9ad4cef3195fd257980b58b479c42d3e5"
-  dependencies:
-    lodash.get "^4.0.0"
-
-csv@^1.1.0:
-  version "1.1.1"
-  resolved "http://46.146.245.83:4873/csv/-/csv-1.1.1.tgz#d9952d59b1f964a7afbcdd804d6818a73199a477"
-  dependencies:
-    csv-generate "^1.0.0"
-    csv-parse "^1.2.0"
-    csv-stringify "^1.0.0"
-    stream-transform "^0.1.0"
-
 dashdash@^1.12.0:
   version "1.14.1"
   resolved "http://46.146.245.83:4873/dashdash/-/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
   dependencies:
     assert-plus "^1.0.0"
 
-debug@2.6.8, debug@^2.6.8:
+debug@2.6.8:
   version "2.6.8"
   resolved "http://46.146.245.83:4873/debug/-/debug-2.6.8.tgz#e731531ca2ede27d188222427da17821d68ff4fc"
   dependencies:
@@ -230,15 +227,13 @@ delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "http://46.146.245.83:4873/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
 
-detect-node@^2.0.3:
-  version "2.0.3"
-  resolved "http://46.146.245.83:4873/detect-node/-/detect-node-2.0.3.tgz#a2033c09cc8e158d37748fbde7507832bd6ce127"
+depd@1.1.1, depd@~1.1.1:
+  version "1.1.1"
+  resolved "http://46.146.245.83:4873/depd/-/depd-1.1.1.tgz#5783b4e1c459f06fa5ca27f991f3d06e7a310359"
 
-dtrace-provider@^0.8.1, dtrace-provider@~0.8:
-  version "0.8.5"
-  resolved "http://46.146.245.83:4873/dtrace-provider/-/dtrace-provider-0.8.5.tgz#98ebba221afac46e1c39fd36858d8f9367524b92"
-  dependencies:
-    nan "^2.3.3"
+destroy@~1.0.4:
+  version "1.0.4"
+  resolved "http://46.146.245.83:4873/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"
 
 ecc-jsbn@~0.1.1:
   version "0.1.1"
@@ -253,31 +248,78 @@ ecdsa-sig-formatter@1.0.9:
     base64url "^2.0.0"
     safe-buffer "^5.0.1"
 
+ee-first@1.1.1:
+  version "1.1.1"
+  resolved "http://46.146.245.83:4873/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
+
+encodeurl@~1.0.1:
+  version "1.0.1"
+  resolved "http://46.146.245.83:4873/encodeurl/-/encodeurl-1.0.1.tgz#79e3d58655346909fe6f0f45a5de68103b294d20"
+
 es6-promise@3.2.1:
   version "3.2.1"
   resolved "http://46.146.245.83:4873/es6-promise/-/es6-promise-3.2.1.tgz#ec56233868032909207170c39448e24449dd1fc4"
 
-escape-regexp-component@^1.0.2:
-  version "1.0.2"
-  resolved "http://46.146.245.83:4873/escape-regexp-component/-/escape-regexp-component-1.0.2.tgz#9c63b6d0b25ff2a88c3adbd18c5b61acc3b9faa2"
+escape-html@~1.0.3:
+  version "1.0.3"
+  resolved "http://46.146.245.83:4873/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
 
-ewma@^2.0.1:
-  version "2.0.1"
-  resolved "http://46.146.245.83:4873/ewma/-/ewma-2.0.1.tgz#9876c1c491ac5733c8666001a3961a04c97cf1e8"
+etag@~1.8.0:
+  version "1.8.1"
+  resolved "http://46.146.245.83:4873/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
+
+express@^4.15.4:
+  version "4.15.4"
+  resolved "http://46.146.245.83:4873/express/-/express-4.15.4.tgz#032e2253489cf8fce02666beca3d11ed7a2daed1"
   dependencies:
-    assert-plus "^1.0.0"
+    accepts "~1.3.3"
+    array-flatten "1.1.1"
+    content-disposition "0.5.2"
+    content-type "~1.0.2"
+    cookie "0.3.1"
+    cookie-signature "1.0.6"
+    debug "2.6.8"
+    depd "~1.1.1"
+    encodeurl "~1.0.1"
+    escape-html "~1.0.3"
+    etag "~1.8.0"
+    finalhandler "~1.0.4"
+    fresh "0.5.0"
+    merge-descriptors "1.0.1"
+    methods "~1.1.2"
+    on-finished "~2.3.0"
+    parseurl "~1.3.1"
+    path-to-regexp "0.1.7"
+    proxy-addr "~1.1.5"
+    qs "6.5.0"
+    range-parser "~1.2.0"
+    send "0.15.4"
+    serve-static "1.12.4"
+    setprototypeof "1.0.3"
+    statuses "~1.3.1"
+    type-is "~1.6.15"
+    utils-merge "1.0.0"
+    vary "~1.1.1"
 
 extend@~3.0.0:
   version "3.0.1"
   resolved "http://46.146.245.83:4873/extend/-/extend-3.0.1.tgz#a755ea7bc1adfcc5a31ce7e762dbaadc5e636444"
 
-extsprintf@1.2.0:
-  version "1.2.0"
-  resolved "http://46.146.245.83:4873/extsprintf/-/extsprintf-1.2.0.tgz#5ad946c22f5b32ba7f8cd7426711c6e8a3fc2529"
-
 extsprintf@1.3.0, extsprintf@^1.2.0:
   version "1.3.0"
   resolved "http://46.146.245.83:4873/extsprintf/-/extsprintf-1.3.0.tgz#96918440e3041a7a414f8c52e3c574eb3c3e1e05"
+
+finalhandler@~1.0.4:
+  version "1.0.5"
+  resolved "http://46.146.245.83:4873/finalhandler/-/finalhandler-1.0.5.tgz#a701303d257a1bc82fea547a33e5ae89531723df"
+  dependencies:
+    debug "2.6.8"
+    encodeurl "~1.0.1"
+    escape-html "~1.0.3"
+    on-finished "~2.3.0"
+    parseurl "~1.3.2"
+    statuses "~1.3.1"
+    unpipe "~1.0.0"
 
 forever-agent@~0.6.1:
   version "0.6.1"
@@ -291,29 +333,19 @@ form-data@~2.1.1:
     combined-stream "^1.0.5"
     mime-types "^2.1.12"
 
-formidable@^1.0.17:
-  version "1.1.1"
-  resolved "http://46.146.245.83:4873/formidable/-/formidable-1.1.1.tgz#96b8886f7c3c3508b932d6bd70c4d3a88f35f1a9"
+forwarded@~0.1.0:
+  version "0.1.2"
+  resolved "http://46.146.245.83:4873/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
+
+fresh@0.5.0:
+  version "0.5.0"
+  resolved "http://46.146.245.83:4873/fresh/-/fresh-0.5.0.tgz#f474ca5e6a9246d6fd8e0953cfa9b9c805afa78e"
 
 getpass@^0.1.1:
   version "0.1.7"
   resolved "http://46.146.245.83:4873/getpass/-/getpass-0.1.7.tgz#5eff8e3e684d569ae4cb2b1282604e8ba62149fa"
   dependencies:
     assert-plus "^1.0.0"
-
-glob@^6.0.1:
-  version "6.0.4"
-  resolved "http://46.146.245.83:4873/glob/-/glob-6.0.4.tgz#0f08860f6a155127b2fadd4f9ce24b1aab6e4d22"
-  dependencies:
-    inflight "^1.0.4"
-    inherits "2"
-    minimatch "2 || 3"
-    once "^1.3.0"
-    path-is-absolute "^1.0.0"
-
-handle-thing@^1.2.5:
-  version "1.2.5"
-  resolved "http://46.146.245.83:4873/handle-thing/-/handle-thing-1.2.5.tgz#fd7aad726bf1a5fd16dfc29b2f7a6601d27139c4"
 
 har-schema@^1.0.5:
   version "1.0.5"
@@ -343,26 +375,14 @@ hooks-fixed@2.0.0:
   version "2.0.0"
   resolved "http://46.146.245.83:4873/hooks-fixed/-/hooks-fixed-2.0.0.tgz#a01d894d52ac7f6599bbb1f63dfc9c411df70cba"
 
-hpack.js@^2.1.6:
-  version "2.1.6"
-  resolved "http://46.146.245.83:4873/hpack.js/-/hpack.js-2.1.6.tgz#87774c0949e513f42e84575b3c45681fade2a0b2"
+http-errors@~1.6.2:
+  version "1.6.2"
+  resolved "http://46.146.245.83:4873/http-errors/-/http-errors-1.6.2.tgz#0a002cc85707192a7e7946ceedc11155f60ec736"
   dependencies:
-    inherits "^2.0.1"
-    obuf "^1.0.0"
-    readable-stream "^2.0.1"
-    wbuf "^1.1.0"
-
-http-deceiver@^1.2.7:
-  version "1.2.7"
-  resolved "http://46.146.245.83:4873/http-deceiver/-/http-deceiver-1.2.7.tgz#fa7168944ab9a519d337cb0bec7284dc3e723d87"
-
-http-signature@^1.0.0:
-  version "1.2.0"
-  resolved "http://46.146.245.83:4873/http-signature/-/http-signature-1.2.0.tgz#9aecd925114772f3d95b65a60abb8f7c18fbace1"
-  dependencies:
-    assert-plus "^1.0.0"
-    jsprim "^1.2.2"
-    sshpk "^1.7.0"
+    depd "1.1.1"
+    inherits "2.0.3"
+    setprototypeof "1.0.3"
+    statuses ">= 1.3.1 < 2"
 
 http-signature@~1.1.0:
   version "1.1.1"
@@ -372,24 +392,13 @@ http-signature@~1.1.0:
     jsprim "^1.2.2"
     sshpk "^1.7.0"
 
-inflight@^1.0.4:
-  version "1.0.6"
-  resolved "http://46.146.245.83:4873/inflight/-/inflight-1.0.6.tgz#49bd6331d7d02d0c09bc910a1075ba8165b56df9"
-  dependencies:
-    once "^1.3.0"
-    wrappy "1"
-
-inherits@2, inherits@^2.0.1, inherits@~2.0.1, inherits@~2.0.3:
+inherits@2.0.3, inherits@~2.0.1:
   version "2.0.3"
   resolved "http://46.146.245.83:4873/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
 
-is-regexp@^1.0.0:
-  version "1.0.0"
-  resolved "http://46.146.245.83:4873/is-regexp/-/is-regexp-1.0.0.tgz#fd2d883545c46bac5a633e7b9a09e87fa2cb5069"
-
-is-supported-regexp-flag@^1.0.0:
-  version "1.0.0"
-  resolved "http://46.146.245.83:4873/is-supported-regexp-flag/-/is-supported-regexp-flag-1.0.0.tgz#8b520c85fae7a253382d4b02652e045576e13bb8"
+ipaddr.js@1.4.0:
+  version "1.4.0"
+  resolved "http://46.146.245.83:4873/ipaddr.js/-/ipaddr.js-1.4.0.tgz#296aca878a821816e5b85d0a285a99bcff4582f0"
 
 is-typedarray@~1.0.0:
   version "1.0.0"
@@ -478,60 +487,41 @@ kareem@1.5.0:
   version "1.5.0"
   resolved "http://46.146.245.83:4873/kareem/-/kareem-1.5.0.tgz#e3e4101d9dcfde299769daf4b4db64d895d17448"
 
-lodash.get@^4.0.0:
-  version "4.4.2"
-  resolved "http://46.146.245.83:4873/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
-
 lodash.once@^4.0.0:
   version "4.1.1"
   resolved "http://46.146.245.83:4873/lodash.once/-/lodash.once-4.1.1.tgz#0dd3971213c7c56df880977d504c88fb471a97ac"
 
-lodash@^4.14.0, lodash@^4.17.4, lodash@^4.2.1:
+lodash@^4.14.0:
   version "4.17.4"
   resolved "http://46.146.245.83:4873/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
-lru-cache@^4.0.1:
-  version "4.1.1"
-  resolved "http://46.146.245.83:4873/lru-cache/-/lru-cache-4.1.1.tgz#622e32e82488b49279114a4f9ecf45e7cd6bba55"
-  dependencies:
-    pseudomap "^1.0.2"
-    yallist "^2.1.2"
+media-typer@0.3.0:
+  version "0.3.0"
+  resolved "http://46.146.245.83:4873/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
+
+merge-descriptors@1.0.1:
+  version "1.0.1"
+  resolved "http://46.146.245.83:4873/merge-descriptors/-/merge-descriptors-1.0.1.tgz#b00aaa556dd8b44568150ec9d1b953f3f90cbb61"
+
+methods@~1.1.2:
+  version "1.1.2"
+  resolved "http://46.146.245.83:4873/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
 
 mime-db@~1.30.0:
   version "1.30.0"
   resolved "http://46.146.245.83:4873/mime-db/-/mime-db-1.30.0.tgz#74c643da2dd9d6a45399963465b26d5ca7d71f01"
 
-mime-types@^2.1.12, mime-types@~2.1.7:
+mime-types@^2.1.12, mime-types@~2.1.15, mime-types@~2.1.16, mime-types@~2.1.7:
   version "2.1.17"
   resolved "http://46.146.245.83:4873/mime-types/-/mime-types-2.1.17.tgz#09d7a393f03e995a79f8af857b70a9e0ab16557a"
   dependencies:
     mime-db "~1.30.0"
 
-mime@^1.4.0:
-  version "1.4.0"
-  resolved "http://46.146.245.83:4873/mime/-/mime-1.4.0.tgz#69e9e0db51d44f2a3b56e48b7817d7d137f1a343"
+mime@1.3.4:
+  version "1.3.4"
+  resolved "http://46.146.245.83:4873/mime/-/mime-1.3.4.tgz#115f9e3b6b3daf2959983cb38f149a2d40eb5d53"
 
-minimalistic-assert@^1.0.0:
-  version "1.0.0"
-  resolved "http://46.146.245.83:4873/minimalistic-assert/-/minimalistic-assert-1.0.0.tgz#702be2dda6b37f4836bcb3f5db56641b64a1d3d3"
-
-"minimatch@2 || 3":
-  version "3.0.4"
-  resolved "http://46.146.245.83:4873/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
-  dependencies:
-    brace-expansion "^1.1.7"
-
-minimist@0.0.8:
-  version "0.0.8"
-  resolved "http://46.146.245.83:4873/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
-
-mkdirp@~0.5.1:
-  version "0.5.1"
-  resolved "http://46.146.245.83:4873/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
-  dependencies:
-    minimist "0.0.8"
-
-moment@2.x.x, moment@^2.10.3, moment@^2.10.6:
+moment@2.x.x, moment@^2.10.3:
   version "2.18.1"
   resolved "http://46.146.245.83:4873/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
 
@@ -592,23 +582,7 @@ muri@1.2.2:
   version "1.2.2"
   resolved "http://46.146.245.83:4873/muri/-/muri-1.2.2.tgz#63198132650db08a04cc79ccd00dd389afd2631c"
 
-mv@~2:
-  version "2.1.1"
-  resolved "http://46.146.245.83:4873/mv/-/mv-2.1.1.tgz#ae6ce0d6f6d5e0a4f7d893798d03c1ea9559b6a2"
-  dependencies:
-    mkdirp "~0.5.1"
-    ncp "~2.0.0"
-    rimraf "~2.4.0"
-
-nan@^2.3.3:
-  version "2.7.0"
-  resolved "http://46.146.245.83:4873/nan/-/nan-2.7.0.tgz#d95bf721ec877e08db276ed3fc6eb78f9083ad46"
-
-ncp@~2.0.0:
-  version "2.0.0"
-  resolved "http://46.146.245.83:4873/ncp/-/ncp-2.0.0.tgz#195a21d6c46e361d2fb1281ba38b91e9df7bdbb3"
-
-negotiator@^0.6.1:
+negotiator@0.6.1:
   version "0.6.1"
   resolved "http://46.146.245.83:4873/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
@@ -616,27 +590,23 @@ oauth-sign@~0.8.1:
   version "0.8.2"
   resolved "http://46.146.245.83:4873/oauth-sign/-/oauth-sign-0.8.2.tgz#46a6ab7f0aead8deae9ec0565780b7d4efeb9d43"
 
-obuf@^1.0.0, obuf@^1.1.1:
-  version "1.1.1"
-  resolved "http://46.146.245.83:4873/obuf/-/obuf-1.1.1.tgz#104124b6c602c6796881a042541d36db43a5264e"
-
-once@^1.3.0:
-  version "1.4.0"
-  resolved "http://46.146.245.83:4873/once/-/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
+on-finished@~2.3.0:
+  version "2.3.0"
+  resolved "http://46.146.245.83:4873/on-finished/-/on-finished-2.3.0.tgz#20f1336481b083cd75337992a16971aa2d906947"
   dependencies:
-    wrappy "1"
+    ee-first "1.1.1"
 
-path-is-absolute@^1.0.0:
-  version "1.0.1"
-  resolved "http://46.146.245.83:4873/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
+parseurl@~1.3.1, parseurl@~1.3.2:
+  version "1.3.2"
+  resolved "http://46.146.245.83:4873/parseurl/-/parseurl-1.3.2.tgz#fc289d4ed8993119460c156253262cdc8de65bf3"
+
+path-to-regexp@0.1.7:
+  version "0.1.7"
+  resolved "http://46.146.245.83:4873/path-to-regexp/-/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
 
 performance-now@^0.2.0:
   version "0.2.0"
   resolved "http://46.146.245.83:4873/performance-now/-/performance-now-0.2.0.tgz#33ef30c5c77d4ea21c5a53869d91b56d8f2555e5"
-
-pidusage@^1.1.6:
-  version "1.1.6"
-  resolved "http://46.146.245.83:4873/pidusage/-/pidusage-1.1.6.tgz#d708d8e38cc7ccfaa191fb6adac1fd674a4be184"
 
 process-nextick-args@~1.0.6:
   version "1.0.7"
@@ -648,21 +618,28 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-pseudomap@^1.0.2:
-  version "1.0.2"
-  resolved "http://46.146.245.83:4873/pseudomap/-/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"
+proxy-addr@~1.1.5:
+  version "1.1.5"
+  resolved "http://46.146.245.83:4873/proxy-addr/-/proxy-addr-1.1.5.tgz#71c0ee3b102de3f202f3b64f608d173fcba1a918"
+  dependencies:
+    forwarded "~0.1.0"
+    ipaddr.js "1.4.0"
 
 punycode@^1.4.1:
   version "1.4.1"
   resolved "http://46.146.245.83:4873/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
 
-qs@^6.2.1:
-  version "6.5.1"
-  resolved "http://46.146.245.83:4873/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
+qs@6.5.0:
+  version "6.5.0"
+  resolved "http://46.146.245.83:4873/qs/-/qs-6.5.0.tgz#8d04954d364def3efc55b5a0793e1e2c8b1e6e49"
 
 qs@~6.4.0:
   version "6.4.0"
   resolved "http://46.146.245.83:4873/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
+
+range-parser@~1.2.0:
+  version "1.2.0"
+  resolved "http://46.146.245.83:4873/range-parser/-/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
 
 readable-stream@2.2.7:
   version "2.2.7"
@@ -674,18 +651,6 @@ readable-stream@2.2.7:
     isarray "~1.0.0"
     process-nextick-args "~1.0.6"
     string_decoder "~1.0.0"
-    util-deprecate "~1.0.1"
-
-readable-stream@^2.0.1, readable-stream@^2.2.9:
-  version "2.3.3"
-  resolved "http://46.146.245.83:4873/readable-stream/-/readable-stream-2.3.3.tgz#368f2512d79f9d46fdfc71349ae7878bbc1eb95c"
-  dependencies:
-    core-util-is "~1.0.0"
-    inherits "~2.0.3"
-    isarray "~1.0.0"
-    process-nextick-args "~1.0.6"
-    safe-buffer "~5.1.1"
-    string_decoder "~1.0.3"
     util-deprecate "~1.0.1"
 
 regexp-clone@0.0.1:
@@ -730,69 +695,48 @@ resolve-from@^2.0.0:
   version "2.0.0"
   resolved "http://46.146.245.83:4873/resolve-from/-/resolve-from-2.0.0.tgz#9480ab20e94ffa1d9e80a804c7ea147611966b57"
 
-restify-errors@^5.0.0:
-  version "5.0.0"
-  resolved "http://46.146.245.83:4873/restify-errors/-/restify-errors-5.0.0.tgz#668717e100683eec6ce0d515f89ff1dbec254a8d"
-  dependencies:
-    assert-plus "^1.0.0"
-    lodash "^4.2.1"
-    verror "^1.8.1"
-  optionalDependencies:
-    safe-json-stringify "^1.0.3"
-
-restify@^6.0.1:
-  version "6.0.1"
-  resolved "http://46.146.245.83:4873/restify/-/restify-6.0.1.tgz#3601a32d21406c7d7bafab462404dd0705279fc3"
-  dependencies:
-    assert-plus "^1.0.0"
-    bunyan "^1.8.1"
-    clone-regexp "^1.0.0"
-    csv "^1.1.0"
-    escape-regexp-component "^1.0.2"
-    ewma "^2.0.1"
-    formidable "^1.0.17"
-    http-signature "^1.0.0"
-    lodash "^4.17.4"
-    lru-cache "^4.0.1"
-    mime "^1.4.0"
-    negotiator "^0.6.1"
-    once "^1.3.0"
-    pidusage "^1.1.6"
-    qs "^6.2.1"
-    restify-errors "^5.0.0"
-    semver "^5.0.1"
-    spdy "^3.3.3"
-    uuid "^3.0.0"
-    vasync "^1.6.4"
-    verror "^1.9.0"
-  optionalDependencies:
-    dtrace-provider "^0.8.1"
-
-rimraf@~2.4.0:
-  version "2.4.5"
-  resolved "http://46.146.245.83:4873/rimraf/-/rimraf-2.4.5.tgz#ee710ce5d93a8fdb856fb5ea8ff0e2d75934b2da"
-  dependencies:
-    glob "^6.0.1"
-
 rsa-pem-from-mod-exp@^0.8.4:
   version "0.8.4"
   resolved "http://46.146.245.83:4873/rsa-pem-from-mod-exp/-/rsa-pem-from-mod-exp-0.8.4.tgz#362a42c6d304056d493b3f12bceabb2c6576a6d4"
 
-safe-buffer@^5.0.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
+safe-buffer@^5.0.1, safe-buffer@~5.1.0:
   version "5.1.1"
   resolved "http://46.146.245.83:4873/safe-buffer/-/safe-buffer-5.1.1.tgz#893312af69b2123def71f57889001671eeb2c853"
 
-safe-json-stringify@^1.0.3, safe-json-stringify@~1:
-  version "1.0.4"
-  resolved "http://46.146.245.83:4873/safe-json-stringify/-/safe-json-stringify-1.0.4.tgz#81a098f447e4bbc3ff3312a243521bc060ef5911"
-
-select-hose@^2.0.0:
-  version "2.0.0"
-  resolved "http://46.146.245.83:4873/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
-
-semver@^5.0.1, semver@^5.1.0:
+semver@^5.1.0:
   version "5.4.1"
   resolved "http://46.146.245.83:4873/semver/-/semver-5.4.1.tgz#e059c09d8571f0540823733433505d3a2f00b18e"
+
+send@0.15.4:
+  version "0.15.4"
+  resolved "http://46.146.245.83:4873/send/-/send-0.15.4.tgz#985faa3e284b0273c793364a35c6737bd93905b9"
+  dependencies:
+    debug "2.6.8"
+    depd "~1.1.1"
+    destroy "~1.0.4"
+    encodeurl "~1.0.1"
+    escape-html "~1.0.3"
+    etag "~1.8.0"
+    fresh "0.5.0"
+    http-errors "~1.6.2"
+    mime "1.3.4"
+    ms "2.0.0"
+    on-finished "~2.3.0"
+    range-parser "~1.2.0"
+    statuses "~1.3.1"
+
+serve-static@1.12.4:
+  version "1.12.4"
+  resolved "http://46.146.245.83:4873/serve-static/-/serve-static-1.12.4.tgz#9b6aa98eeb7253c4eedc4c1f6fdbca609901a961"
+  dependencies:
+    encodeurl "~1.0.1"
+    escape-html "~1.0.3"
+    parseurl "~1.3.1"
+    send "0.15.4"
+
+setprototypeof@1.0.3:
+  version "1.0.3"
+  resolved "http://46.146.245.83:4873/setprototypeof/-/setprototypeof-1.0.3.tgz#66567e37043eeb4f04d91bd658c0cbefb55b8e04"
 
 sliced@0.0.5:
   version "0.0.5"
@@ -807,29 +751,6 @@ sntp@1.x.x:
   resolved "http://46.146.245.83:4873/sntp/-/sntp-1.0.9.tgz#6541184cc90aeea6c6e7b35e2659082443c66198"
   dependencies:
     hoek "2.x.x"
-
-spdy-transport@^2.0.18:
-  version "2.0.20"
-  resolved "http://46.146.245.83:4873/spdy-transport/-/spdy-transport-2.0.20.tgz#735e72054c486b2354fe89e702256004a39ace4d"
-  dependencies:
-    debug "^2.6.8"
-    detect-node "^2.0.3"
-    hpack.js "^2.1.6"
-    obuf "^1.1.1"
-    readable-stream "^2.2.9"
-    safe-buffer "^5.0.1"
-    wbuf "^1.7.2"
-
-spdy@^3.3.3:
-  version "3.4.7"
-  resolved "http://46.146.245.83:4873/spdy/-/spdy-3.4.7.tgz#42ff41ece5cc0f99a3a6c28aabb73f5c3b03acbc"
-  dependencies:
-    debug "^2.6.8"
-    handle-thing "^1.2.5"
-    http-deceiver "^1.2.7"
-    safe-buffer "^5.0.1"
-    select-hose "^2.0.0"
-    spdy-transport "^2.0.18"
 
 sprintf-js@^1.0.3:
   version "1.1.1"
@@ -849,11 +770,11 @@ sshpk@^1.7.0:
     jsbn "~0.1.0"
     tweetnacl "~0.14.0"
 
-stream-transform@^0.1.0:
-  version "0.1.2"
-  resolved "http://46.146.245.83:4873/stream-transform/-/stream-transform-0.1.2.tgz#7d8e6b4e03ac4781778f8c79517501bfb0762a9f"
+"statuses@>= 1.3.1 < 2", statuses@~1.3.1:
+  version "1.3.1"
+  resolved "http://46.146.245.83:4873/statuses/-/statuses-1.3.1.tgz#faf51b9eb74aaef3b3acf4ad5f61abf24cb7b93e"
 
-string_decoder@~1.0.0, string_decoder@~1.0.3:
+string_decoder@~1.0.0:
   version "1.0.3"
   resolved "http://46.146.245.83:4873/string_decoder/-/string_decoder-1.0.3.tgz#0fc67d7c141825de94282dd536bec6b9bce860ab"
   dependencies:
@@ -885,9 +806,20 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
   resolved "http://46.146.245.83:4873/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
 
+type-is@~1.6.15:
+  version "1.6.15"
+  resolved "http://46.146.245.83:4873/type-is/-/type-is-1.6.15.tgz#cab10fb4909e441c82842eafe1ad646c81804410"
+  dependencies:
+    media-typer "0.3.0"
+    mime-types "~2.1.15"
+
 typescript@^2.5.2:
   version "2.5.2"
   resolved "http://46.146.245.83:4873/typescript/-/typescript-2.5.2.tgz#038a95f7d9bbb420b1bf35ba31d4c5c1dd3ffe34"
+
+unpipe@~1.0.0:
+  version "1.0.0"
+  resolved "http://46.146.245.83:4873/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"
 
 url-join@^1.1.0:
   version "1.1.0"
@@ -897,17 +829,19 @@ util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "http://46.146.245.83:4873/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
 
+utils-merge@1.0.0:
+  version "1.0.0"
+  resolved "http://46.146.245.83:4873/utils-merge/-/utils-merge-1.0.0.tgz#0294fb922bb9375153541c4f7096231f287c8af8"
+
 uuid@^3.0.0:
   version "3.1.0"
   resolved "http://46.146.245.83:4873/uuid/-/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
 
-vasync@^1.6.4:
-  version "1.6.4"
-  resolved "http://46.146.245.83:4873/vasync/-/vasync-1.6.4.tgz#dfe93616ad0e7ae801b332a9d88bfc5cdc8e1d1f"
-  dependencies:
-    verror "1.6.0"
+vary@~1.1.1:
+  version "1.1.1"
+  resolved "http://46.146.245.83:4873/vary/-/vary-1.1.1.tgz#67535ebb694c1d52257457984665323f587e8d37"
 
-verror@1.10.0, verror@^1.8.1, verror@^1.9.0:
+verror@1.10.0:
   version "1.10.0"
   resolved "http://46.146.245.83:4873/verror/-/verror-1.10.0.tgz#3a105ca17053af55d6e270c1f8288682e18da400"
   dependencies:
@@ -915,26 +849,6 @@ verror@1.10.0, verror@^1.8.1, verror@^1.9.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-verror@1.6.0:
-  version "1.6.0"
-  resolved "http://46.146.245.83:4873/verror/-/verror-1.6.0.tgz#7d13b27b1facc2e2da90405eb5ea6e5bdd252ea5"
-  dependencies:
-    extsprintf "1.2.0"
-
-wbuf@^1.1.0, wbuf@^1.7.2:
-  version "1.7.2"
-  resolved "http://46.146.245.83:4873/wbuf/-/wbuf-1.7.2.tgz#d697b99f1f59512df2751be42769c1580b5801fe"
-  dependencies:
-    minimalistic-assert "^1.0.0"
-
-wrappy@1:
-  version "1.0.2"
-  resolved "http://46.146.245.83:4873/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
-
 xtend@^4.0.1:
   version "4.0.1"
   resolved "http://46.146.245.83:4873/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
-
-yallist@^2.1.2:
-  version "2.1.2"
-  resolved "http://46.146.245.83:4873/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"

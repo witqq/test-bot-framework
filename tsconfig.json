@@ -13,6 +13,10 @@
       "es2015.collection"
     ]
   },
+  "include":[
+    "src/**/*",
+    "index.ts"
+  ],
   "exclude": [
     "node_modules",
     "target",
