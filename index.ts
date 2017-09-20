@@ -1,5 +1,6 @@
 import {createServer} from "restify";
 import {ChatConnector, UniversalBot} from "botbuilder";
+import {tmp} from "./test";
 
 const server = createServer();
 server.listen(process.env.port || process.env.PORT || 8080, function () {
@@ -15,6 +16,7 @@ const connector = new ChatConnector({
 // Listen for messages from users
 server.post("/api/messages", connector.listen());
 server.get("/", (req, res) => {
+  console.log(tmp);
   res.send("hello restify")
 });
 

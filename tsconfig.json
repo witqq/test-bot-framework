@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
+    "outDir": "dist",
+    "lib": [
+      "dom",
+      "es5",
+      "es2015.collection"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "target",
+    "ts-compile"
+  ]
+}
