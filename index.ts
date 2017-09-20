@@ -1,6 +1,7 @@
 import {createServer} from "restify";
 import {ChatConnector, UniversalBot} from "botbuilder";
 import {tmp} from "./test";
+import {initDb} from "./database";
 
 const server = createServer();
 server.listen(process.env.port || process.env.PORT || 8080, function () {
@@ -13,10 +14,13 @@ const connector = new ChatConnector({
   appPassword: "0MTXpGxEiX5vz6qSbEmLDCh"
 });
 
+initDb();
+
 // Listen for messages from users
 server.post("/api/messages", connector.listen());
 server.get("/", (req, res) => {
   console.log(tmp);
+  res.send(`mogo string ${process.env.MONGODB_URI}`);
   res.send("hello restify")
 });
 
