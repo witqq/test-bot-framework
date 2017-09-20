@@ -3,7 +3,6 @@ var builder = require('botbuilder');
 
 // Setup Restify Server
 var server = restify.createServer();
-var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 8080, function () {
     console.log('%s listening to %s', server.name, server.url);
 });
@@ -22,5 +21,12 @@ server.get('/', (req, res) => {
 
 // Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
 var bot = new builder.UniversalBot(connector, function (session) {
-    session.send("You said: %s", session.message.text);
+
+    const text = session.message.text;
+    if (text.trim().toLowerCase().replace(" ", "").indexOf("димагей")) {
+        session.send("lol +1");
+    }
+    else {
+        session.send("You said: %s", text);
+    }
 });
