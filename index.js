@@ -21,12 +21,16 @@ server.get('/', (req, res) => {
 
 // Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
 var bot = new builder.UniversalBot(connector, function (session) {
-
-    const text = session.message.text;
-    if (text.trim().toLowerCase().replace(" ", "").indexOf("димагей") !== -1) {
-        session.send("lol +1");
+    try {
+        const text = session.message.text;
+        if (text.trim().toLowerCase().replace(" ", "").indexOf("димагей") !== -1) {
+            session.send("lol +1");
+        }
+        else {
+            session.send("You said: %s", text);
+        }
     }
-    else {
-        session.send("You said: %s", text);
+    catch (e) {
+        session.send(e.message || e && e.toString());
     }
 });
