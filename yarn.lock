@@ -2,6 +2,23 @@
 # yarn lockfile v1
 
 
+"@types/bunyan@*":
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/@types/bunyan/-/bunyan-1.8.2.tgz#35828136edb33e10d154a570e63771262ba4dc0f"
+  dependencies:
+    "@types/node" "*"
+
+"@types/node@*", "@types/node@^8.0.28":
+  version "8.0.28"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.28.tgz#86206716f8d9251cf41692e384264cbd7058ad60"
+
+"@types/restify@^5.0.4":
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/@types/restify/-/restify-5.0.4.tgz#dcb25942ee05b3b4ed653f215db14db6de374ade"
+  dependencies:
+    "@types/bunyan" "*"
+    "@types/node" "*"
+
 ajv@^4.9.1:
   version "4.11.8"
   resolved "http://46.146.245.83:4873/ajv/-/ajv-4.11.8.tgz#82ffb02b29e662ae53bdc20af15947706739c536"
@@ -729,6 +746,10 @@ tunnel-agent@^0.6.0:
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
   resolved "http://46.146.245.83:4873/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
+
+typescript@^2.5.2:
+  version "2.5.2"
+  resolved "http://46.146.245.83:4873/typescript/-/typescript-2.5.2.tgz#038a95f7d9bbb420b1bf35ba31d4c5c1dd3ffe34"
 
 url-join@^1.1.0:
   version "1.1.0"
