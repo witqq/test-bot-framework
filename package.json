@@ -5,12 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./dist/index.js",
-    "postinstall": "tsc && webpack",
+    "heroku-postbuild": "tsc && webpack",
     "tsc-watch": "tsc --watch",
     "server-watch": "nodemon ./dist/index.js",
     "client-watch": "webpack-dev-server",
     "client-build": "webpack"
-
   },
   "author": "",
   "license": "ISC",
@@ -29,6 +28,8 @@
     "botbuilder": "^3.9.1",
     "express": "^4.15.4",
     "html-webpack-plugin": "^2.30.1",
+    "material-ui": "^0.19.2",
+    "mobx-state-tree": "^1.0.0",
     "mongoose": "^4.11.12",
     "node-ts": "^2.1.2",
     "react": "^15.6.1",
