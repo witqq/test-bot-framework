@@ -36,6 +36,7 @@ export default class App extends Component<{}, { count: number; }> {
   @autobind
   onTestClick() {
     Api.test().then(res => {
+      AppSnackBar.setMessage("Api working");
       console.log(res)
     });
   }

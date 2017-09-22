@@ -9,7 +9,9 @@ Axios.interceptors.response.use(function (response) {
   const message = error.response.data && error.response.data.message;
   if (message) {
     AppSnackBar.setMessage(message);
-    return;
+  }
+  else if (error.message) {
+    AppSnackBar.setMessage(error.message);
   }
   return Promise.reject(error);
 });

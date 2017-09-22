@@ -9,6 +9,8 @@ import TextField from "material-ui/TextField";
 import {autobind} from "core-decorators";
 import RaisedButton from "material-ui/RaisedButton";
 import {Api} from "../api/api";
+import {AppSnackBar} from "../stores/snack-bar-store";
+import {computed} from "mobx";
 
 @observer
 export class RegisterView extends Component {
@@ -33,7 +35,7 @@ export class RegisterView extends Component {
   register() {
     const {email, password} = this.store;
     Api.register(email, password).then(res => {
-      console.log(res);
+      AppSnackBar.setMessage(res.data.message);
     });
   }
 
@@ -41,15 +43,20 @@ export class RegisterView extends Component {
   login() {
     const {email, password} = this.store;
     Api.login(email, password).then(res => {
-      console.log(res);
+      AppSnackBar.setMessage(res.data.message);
     });
   }
 
   @autobind
   logout() {
     Api.logout().then(res => {
-      console.log(res);
+      AppSnackBar.setMessage(res.data.message);
     });
+  }
+
+  @computed
+  get buttonActive(): boolean {
+    return this.store.password != "" && this.store.email != "";
   }
 
   render() {
@@ -69,9 +76,11 @@ export class RegisterView extends Component {
                      onChange={this.onPassChange}/>
           <br/>
           <RaisedButton label="Register"
-                        onClick={this.register}/>
+                        onClick={this.register}
+                        disabled={!this.buttonActive}/>
           <RaisedButton label="Login"
-                        onClick={this.login}/>
+                        onClick={this.login}
+                        disabled={!this.buttonActive}/>
           <RaisedButton label="Logout"
                         onClick={this.logout}/>
         </CardText>
