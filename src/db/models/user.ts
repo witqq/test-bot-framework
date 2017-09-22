@@ -40,7 +40,7 @@ const generateHash = (password: string) => {
   return hashSync(password, genSaltSync(8));
 };
 
-const validPassword = (password: string) => {
+function validPassword(password: string) {
   return compareSync(password, this.local.password);
 };
 

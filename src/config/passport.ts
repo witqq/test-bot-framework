@@ -1,7 +1,7 @@
 import {PassportStatic} from "passport";
 import {User} from "../db/models/user";
 import {Strategy, IVerifyOptions} from "passport-local";
-import {Request} from "express";
+import {AuthError} from "../server/utils/auth-error";
 
 export function configPasport(passport: PassportStatic) {
 
@@ -9,7 +9,6 @@ export function configPasport(passport: PassportStatic) {
     done(null, user.id);
   });
 
-  // used to deserialize the user
   passport.deserializeUser(function (id, done) {
     User.findById(id, function (err, user) {
       done(err, user);
@@ -18,49 +17,61 @@ export function configPasport(passport: PassportStatic) {
 
   passport.use("local-signup", new Strategy({
       usernameField: "email",
-      passwordField: "password",
-      passReqToCallback: true // allows us to pass back the entire request to the callback
+      passwordField: "password"
     },
-    (req: Request, email: string, password: string, done: (error: any, user?: any, options?: IVerifyOptions) => void) => {
+    (email: string, password: string, done: (error: any, user?: any, options?: IVerifyOptions) => void) => {
 
-      // asynchronous
-      // User.findOne wont fire unless data is sent back
+      if (!email) {
+        return done(new AuthError("empty mail"));
+      }
+      if (!password) {
+        return done(new AuthError("empty password"));
+      }
+      User.findOne({"local.email": email}, (err, user) => {
+        if (err) {
+          return done(err);
+        }
 
-        // find a user whose email is the same as the forms email
-        // we are checking to see if the user trying to login already exists
-        User.findOne({"local.email": email}, (err, user) => {
-          // if there are any errors, return the error
-          if (err) {
-            return done(err);
-          }
+        if (user) {
+          return done(new AuthError("That email is already taken."));
+        } else {
+          var newUser = new User();
 
-          // check to see if theres already a user with that email
-          if (user) {
-            return done(new Error("user exists"));
-            // return done(null, false, {message: "That email is already taken."});
-          } else {
+          newUser.local.email = email;
+          newUser.local.password = newUser.generateHash(password);
 
-            // if there is no user with that email
-            // create the user
-            var newUser = new User();
+          newUser.save(function (err) {
+            if (err) {
+              throw err;
+            }
+            return done(null, newUser);
+          });
+        }
 
-            // set the user's local credentials
-            newUser.local.email = email;
-            newUser.local.password = newUser.generateHash(password);
-
-            // save the user
-            newUser.save(function (err) {
-              if (err) {
-                throw err;
-              }
-              return done(null, newUser);
-            });
-          }
-
-        });
-
-
-
+      });
     }));
 
+  passport.use("local-login", new Strategy({
+      usernameField: "email",
+      passwordField: "password"
+    },
+    (email: string, password: string, done: (error: any, user?: any, options?: IVerifyOptions) => void) => {
+
+      User.findOne({"local.email": email}, function (err, user) {
+        if (err) {
+          return done(err);
+        }
+
+        if (!user) {
+          return done(new AuthError("No user found."));
+        }
+
+        if (!user.validPassword(password)) {
+          return done(new AuthError("Oops! Wrong password."));
+        }
+
+        return done(null, user);
+      });
+
+    }));
 };
